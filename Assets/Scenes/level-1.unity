@@ -536,7 +536,7 @@ MonoBehaviour:
   stvol: {fileID: 1178937090}
   bulletPoll: {fileID: 2115041597}
   bullets: []
-  bulletSpeed: 10
+  bulletSpeed: 25
 --- !u!1 &699273098
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,20 @@
 using UnityEngine;
-
+public enum OtherHealtOwner: byte
+{
+    Enemy,
+    Player
+}
 public class DamageDealer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private int damage;
+    [SerializeField] private OtherHealtOwner otherHealtOwner;
+
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        
+        if (other.gameObject.CompareTag(otherHealtOwner.ToString()))
+        {
+            GameManager.ST.healthContainer[other.gameObject].TakeDamage(damage);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

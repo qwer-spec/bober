@@ -6,9 +6,16 @@ public class Health : MonoBehaviour
     [SerializeField] private int currentHealth;
     [SerializeField] private bool isActive = true;
 
-    public void Awake()
+    public void Start()
     {
         GameManager.ST.healthContainer.Add(gameObject, this);
+        Resurrection();
+    }
+
+    public void Resurrection()
+    {
+        isActive = true;
+        DoHeal(maxHealth);
     }
 
     public void TakeDamage(int dmg)
@@ -20,10 +27,17 @@ public class Health : MonoBehaviour
 
         if (currentHealth > 0)
             return;
-       
-        currentHealth = 0;
+
+        CheckIsAlive();
         isActive = false;
+
         Invoke(nameof(Activate), 3.0f);
+    }
+
+    private void CheckIsAlive()
+    {
+        if (currentHealth <= 0)
+            Destroy(gameObject);
     }
 
     public void DoHeal(int dmg)

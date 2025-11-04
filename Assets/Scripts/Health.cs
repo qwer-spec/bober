@@ -1,7 +1,13 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public event Action healthChanged;
+    public event Action isDead;
+    public event Action healthDamage;
+
+
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
     [SerializeField] private bool isActive = true;
@@ -32,12 +38,18 @@ public class Health : MonoBehaviour
         isActive = false;
 
         Invoke(nameof(Activate), 3.0f);
+
+        healthDamage?.Invoke();
     }
 
     private void CheckIsAlive()
     {
         if (currentHealth <= 0)
-            Destroy(gameObject);
+        {  
+           isDead?.Invoke();
+           Destroy(gameObject);
+        }
+           
     }
 
     public void DoHeal(int dmg)
@@ -46,6 +58,8 @@ public class Health : MonoBehaviour
 
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
+
+        healthChanged?.Invoke();
     }
 
     private void Activate() 

@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 855812478}
   - component: {fileID: 855812477}
   - component: {fileID: 855812476}
+  - component: {fileID: 855812480}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -621,6 +622,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &855812480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855812474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f6600ae20a2e546a2a80e2dfa18f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  damage: 20
+  otherHealtOwner: 1
 --- !u!1 &877914104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,7 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1646bf9d8d0164ba087e65c99de21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 0
+  maxHealth: 1000
   currentHealth: 0
   isActive: 1
 --- !u!1 &1093917947

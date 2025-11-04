@@ -3,6 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    public static Player ST {get; private set;}
+
     [SerializeField] private Vector2 direction;
     [SerializeField] private float speed;
     [SerializeField] private float JumpForce;
@@ -12,6 +14,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        ST = this;
         rb = GetComponent<Rigidbody2D>();
         gd = GetComponent<GroundDetection>();
     }

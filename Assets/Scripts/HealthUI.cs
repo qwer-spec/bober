@@ -30,8 +30,7 @@ public class HealthUI : MonoBehaviour
 
     private void Dead()
     {
-        greenLine.fillAmount = 0;
-        Menu.ST.GameOver();
+        Debug.Log("You are dead!");
     }
 
 

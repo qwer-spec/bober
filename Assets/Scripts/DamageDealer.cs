@@ -14,7 +14,8 @@ public class DamageDealer : MonoBehaviour
         if (other.gameObject.CompareTag(otherHealtOwner.ToString()))
         {
             GameManager.ST.healthContainer[other.gameObject].TakeDamage(damage);
-            gameObject.SetActive(false);
+            if(otherHealtOwner != OtherHealtOwner.Player)
+                gameObject.SetActive(false);
         }
     }
 

@@ -13,14 +13,12 @@ public class Bullet : MonoBehaviour
     {
         gameObject.SetActive(true);
         rb.AddForce(dir *  bulletSpeed, ForceMode2D.Impulse);
-        StartCoroutine(Clear());
+        Invoke(nameof(Clear), 1.0f);
     }
 
-    private IEnumerator Clear()
+    private void Clear()
     {
-        yield return new WaitForSeconds(3.0f);
         gameObject.SetActive(false);
         transform.localPosition = Vector3.zero;
-        yield return null;
     }
 }

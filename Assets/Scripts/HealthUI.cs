@@ -6,11 +6,16 @@ public class HealthUI : MonoBehaviour
     private Image greenLine;
     private Health playerHealth;
 
-    private void OnEnable()
+    private void Awake()
+    {
+        greenLine = GetComponent<Image>();
+    }
+
+    private void Start()
     {
         playerHealth = Player.ST.GetComponent<Health>();
         playerHealth.healthChanged += ChangeHp;
-        playerHealth.healthDamage += GamageHp;
+        playerHealth.healthDamage += DamageHp;
         playerHealth.isDead += Dead;
     }
     private void ChangeHp()
@@ -18,9 +23,9 @@ public class HealthUI : MonoBehaviour
         Debug.Log("Heal!");
     }
 
-    private void GamageHp()
+    private void DamageHp()
     {
-        Debug.Log("Damage!!");
+        greenLine.fillAmount = (float) playerHealth.currentHealth / (float) playerHealth.maxHealth;
     }
 
     private void Dead()

@@ -8,8 +8,8 @@ public class Health : MonoBehaviour
     public event Action healthDamage;
 
 
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int currentHealth;
+    [SerializeField] public int maxHealth;
+    [SerializeField] public int currentHealth;
     [SerializeField] private bool isActive = true;
 
     public void Start()
@@ -31,13 +31,10 @@ public class Health : MonoBehaviour
 
         currentHealth -= dmg;
 
-        if (currentHealth > 0)
-            return;
-
         CheckIsAlive();
         isActive = false;
 
-        Invoke(nameof(Activate), 3.0f);
+        Invoke(nameof(Activate), 1.0f);
 
         healthDamage?.Invoke();
     }

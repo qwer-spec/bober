@@ -7,17 +7,18 @@ public class EyeEnemy : MonoBehaviour
     [SerializeField] private bool isAlive;
     [SerializeField] private Transform startPoint;
     [SerializeField] private Transform endPoint;
+    [SerializeField] private BulletEye bullet;
     [SerializeField] private bool isLookRight = true;
     [SerializeField] private float speed;
     private Vector3 currentTarget;
 
     private Rigidbody2D _rigidbody2D;
-    private Animation _animation;
+    private Animator _animator;
     private Health _health;
 
     private void Awake()
     {
-        _animation = GetComponent<Animation>();
+        _animator = GetComponent<Animator>();
         _health = GetComponent<Health>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
@@ -64,9 +65,14 @@ public class EyeEnemy : MonoBehaviour
         while (isAlive)
         {
             yield return new WaitForSeconds(2.0f);
-            //_animation.SetTrigger("trAttack");
+            _animator.SetTrigger("trShoot");
         }
 
         yield return null;
+    }
+
+    public void Attack()
+    {
+        bullet.Shoot(transform);
     }
 }

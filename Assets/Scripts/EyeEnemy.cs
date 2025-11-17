@@ -56,7 +56,6 @@ public class EyeEnemy : MonoBehaviour
         { 
             isLookRight = !isLookRight;
             transform.localScale = new Vector3(isLookRight ? 1 : -1, 1, 1);
-           
         }
     }
 
@@ -73,6 +72,6 @@ public class EyeEnemy : MonoBehaviour
 
     public void Attack()
     {
-        bullet.Shoot(transform);
+        bullet.Shoot(transform, isLookRight);
     }
 }

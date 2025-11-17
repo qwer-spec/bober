@@ -1807,7 +1807,8 @@ GameObject:
   - component: {fileID: 1176752779}
   - component: {fileID: 1176752782}
   - component: {fileID: 1176752781}
-  m_Layer: 0
+  - component: {fileID: 1176752783}
+  m_Layer: 8
   m_Name: BulletEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1841,7 +1842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b37e9ea568a1f41ad740e5d97f4a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletEye
-  speed: 3
+  speed: 10
 --- !u!212 &1176752780
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1963,6 +1964,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1176752783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176752777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f6600ae20a2e546a2a80e2dfa18f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  damage: 10
+  otherHealtOwner: 1
 --- !u!1 &1178937089
 GameObject:
   m_ObjectHideFlags: 0

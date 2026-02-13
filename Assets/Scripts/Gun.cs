@@ -9,9 +9,9 @@ public class Gun : MonoBehaviour
     
     [SerializeField] private int bulletSpeed = 10;
 
-    private int currentBullerId = 0;
+    private int currentBulletId = 0;
     private bool isCanShoot = true;
-    private void Awake()
+    private void Start()
     {
         bullets = bulletPoll.GetComponentsInChildren<Bullet>();
 
@@ -38,12 +38,12 @@ public class Gun : MonoBehaviour
     {
             if (!isCanShoot) return;
 
-            bullets[currentBullerId].Fire(stvol.right, bulletSpeed);
+            bullets[currentBulletId].Fire(stvol.right, bulletSpeed);
 
-            if (currentBullerId < bullets.Length - 1)
-                currentBullerId++;
+            if (currentBulletId < bullets.Length - 1)
+                currentBulletId++;
             else
-                currentBullerId = 0;
+                currentBulletId = 0;
 
         StartCoroutine(CoolDown());
     }
